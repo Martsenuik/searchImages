@@ -1,11 +1,13 @@
-export const ImageGallery = ({ images }) => {
-  return (
-    <ul className="gallery">
-      {images.map((image) => (
-        <li key={image.id}>
-          <img src={image.webformatURL} alt={image.tags} />
-        </li>
-      ))}
-    </ul>
-  );
-};
+export const ImageGallery = ({ images, onImageClick }) => (
+  <div className="gallery">
+    {images.map((image) => (
+      <img
+        key={image.id}
+        src={image.previewURL}
+        alt={image.tags}
+        className="thumbnail"
+        onClick={() => onImageClick(image.largeImageURL)}
+      />
+    ))}
+  </div>
+);
